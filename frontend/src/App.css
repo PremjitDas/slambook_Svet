@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Outfit:wght@300;400;500&display=swap');
+
+/* Custom CSS Variables */
+:root {
+  --bg-base: #FBF9F6;
+  --bg-surface: #FFFFFF;
+  --text-primary: #1A1A1A;
+  --text-secondary: #5C5C5C;
+  --border-subtle: #EBE8E3;
+  
+  /* Bride Pink */
+  --bride-base: #FDF7F6;
+  --bride-surface: #F7EBEA;
+  --bride-border: #EACCC9;
+  --bride-accent: #C98A83;
+  
+  /* Groom Blue */
+  --groom-base: #F5F7F9;
+  --groom-surface: #EAEFF4;
+  --groom-border: #C9D6E1;
+  --groom-accent: #7B96AB;
+}
+
+/* Typography */
+.font-heading {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.font-body {
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Hero Section */
+.hero-bg {
+  background-image: url('https://images.pexels.com/photos/36297040/pexels-photo-36297040.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Role backgrounds */
+.bride-bg {
+  background-color: var(--bride-base);
+  background-image: url('https://images.pexels.com/photos/15067861/pexels-photo-15067861.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: overlay;
+}
+
+.groom-bg {
+  background-color: var(--groom-base);
+  background-image: url('https://images.pexels.com/photos/4049603/pexels-photo-4049603.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: overlay;
+}
+
+/* Quiz option styling */
+.quiz-option {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.quiz-option:hover {
+  transform: translateY(-2px);
+}
+
+.quiz-option.selected {
+  transform: translateY(-2px);
+}
+
+.quiz-option.bride-selected {
+  background-color: var(--bride-surface);
+  border-color: var(--bride-accent);
+}
+
+.quiz-option.groom-selected {
+  background-color: var(--groom-surface);
+  border-color: var(--groom-accent);
+}
+
+/* Progress bar */
+.progress-track {
+  height: 2px;
+  background-color: var(--border-subtle);
+}
+
+.progress-fill {
+  height: 2px;
+  transition: width 0.5s ease;
+}
+
+.progress-fill.bride {
+  background-color: var(--bride-accent);
+}
+
+.progress-fill.groom {
+  background-color: var(--groom-accent);
+}
+
+/* Glassmorphism modal */
+.glass-modal {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* Button styles */
+.btn-primary {
+  background-color: var(--text-primary);
+  color: white;
+  padding: 1rem 2rem;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #333333;
+  transform: translateY(-2px);
+}
+
+.btn-bride {
+  background-color: var(--bride-accent);
+  color: white;
+}
+
+.btn-bride:hover {
+  background-color: #b77970;
+}
+
+.btn-groom {
+  background-color: var(--groom-accent);
+  color: white;
+}
+
+.btn-groom:hover {
+  background-color: #6a8599;
+}
+
+/* Score circle */
+.score-circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.score-circle::before {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  background: white;
+}
+
+.score-circle .score-value {
+  position: relative;
+  z-index: 1;
+}
+
+/* Animation keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.animate-pulse-soft {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Staggered animations */
+.stagger-1 { animation-delay: 0.1s; opacity: 0; }
+.stagger-2 { animation-delay: 0.2s; opacity: 0; }
+.stagger-3 { animation-delay: 0.3s; opacity: 0; }
+.stagger-4 { animation-delay: 0.4s; opacity: 0; }
+.stagger-5 { animation-delay: 0.5s; opacity: 0; }
+
+/* Share link input */
+.share-input {
+  background: var(--bg-base);
+  border: 1px solid var(--border-subtle);
+  padding: 1rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+}
+
+/* Category badge */
+.category-badge {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  padding: 0.25rem 0.75rem;
+}
+
+/* Results card */
+.results-card {
+  background: white;
+  border: 1px solid var(--border-subtle);
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.results-card:hover {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Decorative elements */
+.decorative-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-subtle), transparent);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-base);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
