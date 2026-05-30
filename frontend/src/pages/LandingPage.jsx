@@ -1761,15 +1761,23 @@ export default function LandingPage() {
 
         /* ── MODALS ── */
         .ll-modal {
-          background: #1a050a !important;
-          border: 1px solid rgba(232,99,122,0.2) !important;
-          border-radius: 0 !important;
-          box-shadow: 0 40px 80px rgba(0,0,0,0.8) !important;
-          color: var(--parchment) !important;
-          padding: 0 !important;
-          max-width: 460px !important;
-          overflow: hidden !important;
-        }
+            background: #1a050a !important;
+            border: 1px solid rgba(232,99,122,0.2) !important;
+            border-radius: 0 !important;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.8) !important;
+            color: var(--parchment) !important;
+            padding: 0 !important;
+            max-width: 460px !important;
+            overflow: hidden !important;
+            max-height: 90vh !important;        /* ← ADD THIS */
+            overflow-y: auto !important;        /* ← CHANGE overflow:hidden to this */
+            scrollbar-width: thin !important;
+            scrollbar-color: rgba(232,99,122,0.3) transparent !important;
+          }
+          .ll-modal::-webkit-scrollbar { width: 4px; }
+          .ll-modal::-webkit-scrollbar-thumb { background: rgba(232,99,122,0.3); border-radius: 2px; }
+
+          .ll-modal [data-radix-dialog-close] { display: none; }
 
         .ll-modal-banner {
           height: 5px;
@@ -1777,9 +1785,7 @@ export default function LandingPage() {
         }
 
         .ll-modal-header {
-          text-align: center;
-          padding: 2.5rem 2.5rem 1.5rem;
-          border-bottom: 1px solid rgba(232,99,122,0.1);
+          padding: 2rem 2rem 1.25rem;
         }
 
         .ll-modal-ornament {
@@ -1812,7 +1818,7 @@ export default function LandingPage() {
         }
 
         .ll-modal-body {
-          padding: 2rem 2.5rem 2.5rem;
+          padding: 1.5rem 2rem 2rem;
         }
 
         .ll-field-label {
@@ -2263,13 +2269,6 @@ export default function LandingPage() {
           className="ll-modal"
           style={{ maxWidth: 460, padding: 0 }}
         >
-          <button
-            className="ll-close-btn"
-            onClick={() => setShowStartModal(false)}
-          >
-            <X size={18} />
-          </button>
-
           <div className="ll-modal-banner" />
 
           <div className="ll-modal-header">
@@ -2407,13 +2406,6 @@ export default function LandingPage() {
           className="ll-modal"
           style={{ maxWidth: 420, padding: 0 }}
         >
-          <button
-            className="ll-close-btn"
-            onClick={() => setShowJoinModal(false)}
-          >
-            <X size={18} />
-          </button>
-
           <div
             className="ll-modal-banner"
             style={{
